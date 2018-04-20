@@ -11,18 +11,10 @@ import java.time.temporal.ChronoUnit;
  * Las entradas con imagenes se crean a partir de un autor y un contenido.
  */
 
-public class EntradaTexto
+public class EntradaTexto extends Entrada
 {
-    // Usuario que crea la entrada.
-    private String usuario;
     // Contenido de la entrada.
     private String mensaje;
-    // Fecha de publicacion de la entrada.
-    private LocalDateTime momentoPublicacion;
-    // Numero de 'me gusta' de la entrada.
-    private int cantidadMeGusta;
-    // Comentarios de la entrada.
-    private ArrayList<String> comentarios;
     
     /**
      * Constructor - Construye entradas a partir de un autor y un contenido.
@@ -33,29 +25,10 @@ public class EntradaTexto
      */
     public EntradaTexto (String autor, String texto)
     {
-        usuario = autor;
+        super(autor);
         mensaje = texto;
-        momentoPublicacion = LocalDateTime.now();
-        cantidadMeGusta = 0;
-        comentarios = new ArrayList<>();
     }
     
-    /**
-     * Anade un 'me gusta' a la entrada.
-     */
-    public void meGusta()
-    {
-        cantidadMeGusta += 1;
-    }
-    
-    /**
-     * Anade un comentario a a la entrada.
-     * @param text El comentario a anadir.
-     */
-    public void addComentario(String text)
-    {
-        comentarios.add(text);
-    }
     
     /**
      * Devuelve el contenido de la entrada.
@@ -67,15 +40,6 @@ public class EntradaTexto
     }
     
     /**
-     * Devuelve la fecha de publicacion.
-     * @return Devuelve la fecha de publicacion.
-     */
-    public LocalDateTime getMomentoPublicacion()
-    {
-        return momentoPublicacion;
-    }
-    
-    /**
      * Devuelve una cadena con toda la informacion de la entrada.
      * @return Devuelve una cadena con toda la informacion de la entrada.
      */
@@ -83,12 +47,12 @@ public class EntradaTexto
     public String toString()
     {
         String aDevolver = "";
-        aDevolver += "Usuario: " + usuario + "\n";
-        aDevolver += "Likes: " + cantidadMeGusta + "\n";        
+        aDevolver += "Usuario: " + getUsuario() + "\n";
+        aDevolver += "Likes: " + getCantidadMeGusta() + "\n";        
         aDevolver += mensaje + "\n";
         
         // Calculamos el numero de segundos que han pasado desde la fecha de publicacion.
-        long numeroSegundos = momentoPublicacion.until(LocalDateTime.now(), ChronoUnit.SECONDS);
+        long numeroSegundos = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
         aDevolver += "Escrito hace ";
         
         // Comprobamos si debemos expresar el tiempo en segundos o minutos.
@@ -100,13 +64,14 @@ public class EntradaTexto
         }
         aDevolver += "\n";
         
-        // Comprobamos si hay comentarios. Si hay los mostramos, si no, mostramos un mensaje indicandolo.
-        if (comentarios.size() == 0)         {
+        // Comprobamos si hay comentarios. 
+        // Si hay los mostramos, si no, mostramos un mensaje indicandolo.
+        if (getComentarios().size() == 0) {
             aDevolver += "No hay comentarios\n";
         }
         else {
             aDevolver += "Comentarios: \n";
-            for(String comentarioActual : comentarios){
+            for(String comentarioActual : getComentarios()){
                 aDevolver += comentarioActual + "\n";
             }
         }
