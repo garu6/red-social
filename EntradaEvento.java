@@ -68,4 +68,13 @@ public class EntradaEvento extends Entrada
         
         return aDevolver;
     }
+    
+    /**
+     * Imprime por pantalla toda la informacion de la entrada.
+     */
+    @Override
+    public void mostrar()
+    {
+        System.out.println(this);    
+    }    
 }

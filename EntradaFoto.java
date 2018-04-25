@@ -12,7 +12,7 @@ import java.time.temporal.ChronoUnit;
  * para la imagen y la url de la imagen.
  * 
  * @author DAM-2017/2018
- * @version 2018/04/20
+ * @version 2018/04/25
  */
 public class EntradaFoto extends EntradaConComentarios
 {
@@ -94,5 +94,15 @@ public class EntradaFoto extends EntradaConComentarios
         
         return aDevolver;
     }
+    
+    /**
+     * Imprime por pantalla toda la informacion de la entrada.
+     */
+    @Override
+    public void mostrar()
+    {
+        System.out.println(this);    
+    }
+    
 
 }

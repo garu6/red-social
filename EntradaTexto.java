@@ -11,7 +11,7 @@ import java.time.temporal.ChronoUnit;
  * Las entradas con imagenes se crean a partir de un autor y un contenido.
  * 
  * @author DAM-2017/2018
- * @version 2018/04/20
+ * @version 2018/04/25
  */
 
 public class EntradaTexto extends EntradaConComentarios
@@ -81,5 +81,14 @@ public class EntradaTexto extends EntradaConComentarios
         
         
         return aDevolver;
+    }
+    
+    /**
+     * Imprime por pantalla toda la informacion de la entrada.
+     */
+    @Override
+    public void mostrar()
+    {
+        System.out.println(this);    
     }
 }

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
  * se registra el autor y la fecha de publicacion.
  * 
  * @author DAM-2017/2018
- * @version 2018/04/20
+ * @version 2018/04/25
  */
 public class Entrada
 {
@@ -69,6 +69,12 @@ public class Entrada
     public int getCantidadMeGusta()
     {
         return cantidadMeGusta;
+    }
+    
+    
+    public void mostrar()
+    {
+        // no tienes poder aqui. Nada que hacer aqui.
     }
     
 }

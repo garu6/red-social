@@ -8,16 +8,13 @@ import java.util.ArrayList;
  * El muro es el lugar donde los usuarios publicaran sus entradas.
  * 
  * @author DAM-2017/2018
- * @version 2018/04/20
+ * @version 2018/04/25
  */
  public class Muro 
  {
-    // Entradas de texto.
-    private ArrayList <EntradaTexto> mensajes;
-    // Entradas con imagenes.
-    private ArrayList <EntradaFoto> fotos;
-    // Entradas de evento
-    private ArrayList<EntradaEvento> eventos;
+    // Entradas
+    private ArrayList<Entrada> entradas;
+
     
     
     /**
@@ -25,37 +22,17 @@ import java.util.ArrayList;
      */
     public Muro()
     {
-        //Inicializa mensajes y fotos.
-        mensajes = new ArrayList<>();
-        fotos = new ArrayList<>();
-        eventos = new ArrayList<>();
+        entradas = new ArrayList<>();
     }
     
-    /**
-     * Anade una entrada de texto al muro.
-     * @param entrada La entrada de texto a anadir.
-     */
-    public void addEntradaTexto(EntradaTexto entrada)
-    {
-        mensajes.add(entrada);
-    }
-    
-    /**
-     * Anade una entrada de imagen al muro.
-     * @param entradaFoto La entrada de imagen a anadir.
-     */
-     public void addEntradaFoto(EntradaFoto entradaFoto)
-     {
-         fotos.add(entradaFoto);
-     }
      
     /**
-     * Anade una entrada de evento al muro.
-     * @param entradaEvento La entrada de evento a anadir.
+     * Anade una entrada al muro.
+     * @param entrada La entrada de evento a anadir.
      */
-     public void addEntradaEvento(EntradaEvento entradaEvento)
+     public void addEntrada(Entrada entrada)
      {
-         eventos.add(entradaEvento);
+         eventos.add(entrada);
      }
      
     /**
@@ -67,20 +44,10 @@ import java.util.ArrayList;
     {
         String aDevolver = "";
         
-        // Buscamos todas las entradas de texto.
-        for (EntradaTexto entrada : mensajes) {
+        // Buscamos todas las entradas
+        for (Entrada entrada : entradas) {
             aDevolver += entrada + "\n\n";
         }
-        
-        // Buscamos todas las entradas con foto.
-        for (EntradaFoto entrada : fotos) {
-            aDevolver += entrada + "\n\n";
-        }
-        
-        // Buscamos todas las entradas con eventos.
-        for (EntradaEvento actual : eventos) {
-            aDevolver += actual + "\n\n";
-        } 
         
         return aDevolver;
     }
