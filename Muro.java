@@ -6,6 +6,9 @@ import java.util.ArrayList;
  * Pertenece a la aplicacion '0971 - red social'.
  * 
  * El muro es el lugar donde los usuarios publicaran sus entradas.
+ * 
+ * @author DAM-2017/2018
+ * @version 2018/04/20
  */
  public class Muro 
  {
@@ -13,6 +16,9 @@ import java.util.ArrayList;
     private ArrayList <EntradaTexto> mensajes;
     // Entradas con imagenes.
     private ArrayList <EntradaFoto> fotos;
+    // Entradas de evento
+    private ArrayList<EntradaEvento> eventos;
+    
     
     /**
      * Constructor - Construye e inicializa un muro vacio.
@@ -22,6 +28,7 @@ import java.util.ArrayList;
         //Inicializa mensajes y fotos.
         mensajes = new ArrayList<>();
         fotos = new ArrayList<>();
+        eventos = new ArrayList<>();
     }
     
     /**
@@ -43,6 +50,15 @@ import java.util.ArrayList;
      }
      
     /**
+     * Anade una entrada de evento al muro.
+     * @param entradaEvento La entrada de evento a anadir.
+     */
+     public void addEntradaEvento(EntradaEvento entradaEvento)
+     {
+         eventos.add(entradaEvento);
+     }
+     
+    /**
      * Devuelve una cadena con toda la informacion del muro.
      * @return Devuelve una cadena con toda la informacion del muro.
      */
@@ -60,6 +76,11 @@ import java.util.ArrayList;
         for (EntradaFoto entrada : fotos) {
             aDevolver += entrada + "\n\n";
         }
+        
+        // Buscamos todas las entradas con eventos.
+        for (EntradaEvento actual : eventos) {
+            aDevolver += actual + "\n\n";
+        } 
         
         return aDevolver;
     }

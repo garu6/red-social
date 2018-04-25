@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  * Pertenece al proyecto '0971 - red social'.
  * 
  * Una entrada es una publicacion de un usuario en el muro.
- * Las entradas pueden tener comentarios y 'me gusta'. De las entradas
+ * Las entradas pueden tener 'me gusta'. De las entradas
  * se registra el autor y la fecha de publicacion.
  * 
  * @author DAM-2017/2018
@@ -21,14 +21,11 @@ public class Entrada
     private LocalDateTime momentoPublicacion;
     // Cantidad de 'me gusta'.
     private int cantidadMeGusta;
-    // Comentarios de la entrada.
-    private ArrayList<String> comentarios;
- 
  
     /**
      * Constructor -  Construye entradas a partir de un autor.
      * Las entradas se crean con ningun 'me gusta'. El instante de su 
-     * creacion queda registrado. Por defecto, las entradas se crean sin comentarios.
+     * creacion queda registrado.
      * @param autor Autor de la entrada.
      */
     public Entrada(String autor)
@@ -36,7 +33,6 @@ public class Entrada
         usuario = autor;
         momentoPublicacion = LocalDateTime.now();
         cantidadMeGusta = 0;
-        comentarios = new ArrayList<>();
     }
     
         
@@ -58,15 +54,6 @@ public class Entrada
     }
     
     /**
-     * Anade un comentario a la entrada.
-     * @param text El comentario a anadir.
-     */
-    public void addComentario(String text)
-    {
-        comentarios.add(text);
-    }
-    
-    /**
      * Devuelve el autor de la entrada.
      * @return Devuelve el autor de la entrada.
      */
@@ -83,16 +70,5 @@ public class Entrada
     {
         return cantidadMeGusta;
     }
-    
-    
-    /**
-     * Devuelve los comentarios de la entrada.
-     * @return Devuelve los comentarios de la entrada.
-     */
-    public ArrayList<String> getComentarios() 
-    {
-        return comentarios;
-    }
-
     
 }

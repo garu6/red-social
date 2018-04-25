@@ -1,23 +1,22 @@
-import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 /**
- * Una entrada con texto.
+ * Una entrada que informa de un evento.
  * 
  * Pertenece a la aplicacion '0971 - red social'.
  * 
- * Una entrada es un contenido que el usuario comparte en su muro con la comunidad.
- * Las entradas con imagenes se crean a partir de un autor y un contenido.
+ * Una entrada de evento simboliza un evento. Los eventos son cosas como 'Un usuario
+ * se ha unido al grupo'
  * 
  * @author DAM-2017/2018
- * @version 2018/04/20
+ * @version 2018/04/25
  */
 
-public class EntradaTexto extends EntradaConComentarios
+public class EntradaEvento extends Entrada
 {
-    // Contenido de la entrada.
-    private String mensaje;
+    // Contenido del evento.
+    private String mensajeEvento;
     
     /**
      * Constructor - Construye entradas a partir de un autor y un contenido.
@@ -26,20 +25,20 @@ public class EntradaTexto extends EntradaConComentarios
      * @param autor Autor de la entrada.
      * @param mensaje Contenido de la entrada.
      */
-    public EntradaTexto (String autor, String texto)
+    public EntradaEvento (String autor, String texto)
     {
         super(autor);
-        mensaje = texto;
+        mensajeEvento = texto;
     }
     
     
     /**
-     * Devuelve el contenido de la entrada.
-     * @return Devuelve el contenido de la entrada.
+     * Devuelve el contenido del evento.
+     * @return Devuelve el contenido del evento.
      */
-    public String getMensaje()
+    public String getMensajeEvento()
     {
-        return mensaje;
+        return mensajeEvento;
     }
     
     /**
@@ -52,7 +51,7 @@ public class EntradaTexto extends EntradaConComentarios
         String aDevolver = "";
         aDevolver += "Usuario: " + getUsuario() + "\n";
         aDevolver += "Likes: " + getCantidadMeGusta() + "\n";        
-        aDevolver += mensaje + "\n";
+        aDevolver += mensajeEvento + "\n";
         
         // Calculamos el numero de segundos que han pasado desde la fecha de publicacion.
         long numeroSegundos = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
@@ -66,19 +65,6 @@ public class EntradaTexto extends EntradaConComentarios
             aDevolver += numeroSegundos + " segundos";
         }
         aDevolver += "\n";
-        
-        // Comprobamos si hay comentarios. 
-        // Si hay los mostramos, si no, mostramos un mensaje indicandolo.
-        if (getComentarios().size() == 0) {
-            aDevolver += "No hay comentarios\n";
-        }
-        else {
-            aDevolver += "Comentarios: \n";
-            for(String comentarioActual : getComentarios()){
-                aDevolver += comentarioActual + "\n";
-            }
-        }
-        
         
         return aDevolver;
     }

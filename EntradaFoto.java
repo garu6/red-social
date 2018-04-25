@@ -10,8 +10,11 @@ import java.time.temporal.ChronoUnit;
  * Una entrada es un contenido que el usuario comparte en su muro con la comunidad.
  * Las entradas con imagenes se crean a partir de un autor, un titulo
  * para la imagen y la url de la imagen.
+ * 
+ * @author DAM-2017/2018
+ * @version 2018/04/20
  */
-public class EntradaFoto extends Entrada
+public class EntradaFoto extends EntradaConComentarios
 {
     // URL de la imagen.
     private String urlImagen;
