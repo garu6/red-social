@@ -49,22 +49,9 @@ public class EntradaEvento extends Entrada
     public String toString()
     {
         String aDevolver = "";
-        aDevolver += "Usuario: " + getUsuario() + "\n";
-        aDevolver += "Likes: " + getCantidadMeGusta() + "\n";        
+
         aDevolver += mensajeEvento + "\n";
-        
-        // Calculamos el numero de segundos que han pasado desde la fecha de publicacion.
-        long numeroSegundos = getMomentoPublicacion().until(LocalDateTime.now(), ChronoUnit.SECONDS);
-        aDevolver += "Escrito hace ";
-        
-        // Comprobamos si debemos expresar el tiempo en segundos o minutos.
-        if(numeroSegundos > 59){
-            aDevolver += numeroSegundos / 60 + " minutos";
-        }
-        else {
-            aDevolver += numeroSegundos + " segundos";
-        }
-        aDevolver += "\n";
+        aDevolver += super.toString();           
         
         return aDevolver;
     }
@@ -76,5 +63,15 @@ public class EntradaEvento extends Entrada
     public void mostrar()
     {
         System.out.println(this);    
-    }    
+    }
+    
+    /**
+     * Muestra por pantalla los datos exclusivos de la clase.
+     */    
+    public void mostrarDatosExclusivos()
+    {
+        System.out.println(evento);
+    }
+     
+     
 }

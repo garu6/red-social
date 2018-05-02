@@ -15,8 +15,6 @@ import java.util.ArrayList;
     // Entradas
     private ArrayList<Entrada> entradas;
 
-    
-    
     /**
      * Constructor - Construye e inicializa un muro vacio.
      */
@@ -58,5 +56,30 @@ import java.util.ArrayList;
     public void mostrarMuro() 
     {
         System.out.println(this);
+    }
+    
+    
+    
+    /**
+     * Muestra los datos de las entradas que le digamos
+     * @param el tipo de entrada que quieras imprimir
+     */
+    public void mostrarDatosExclusivosEntradasFiltradas(String tipoEntrada)
+    {
+        for (Entrada entrada : entradas) {
+            if (entrada.getClass().getSimpleName().equals(tipoEntrada) || tipoEntrada == null) {
+                switch(entrada.getClass().getSimpleName()){
+                    case "EntradaTexto":
+                    ((EntradaTexto) entrada).mostrarDatosExclusivos(); 
+                    break;
+                    case "EntradaFoto":
+                    ((EntradaFoto) entrada).mostrarDatosExclusivos();
+                    break;
+                    case "EntradaEvento":
+                    ((EntradaEvento) entrada).mostrarDatosExclusivos();
+                    break;
+                }
+            }
+        }
     }
  }

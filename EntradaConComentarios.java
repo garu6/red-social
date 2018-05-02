@@ -37,12 +37,27 @@ public class EntradaConComentarios extends Entrada
     }
     
     /**
-     * Devuelve los comentarios de la entrada.
-     * @return Devuelve los comentarios de la entrada.
+     * Devuelve la informacion sobre la entrada como una cadena.
+     * @return Devuelve la informacion sobre la entrada como una cadena.
      */
-    public ArrayList<String> getComentarios() 
+    @Override
+    public String toString() 
     {
-        return comentarios;
+        String aDevolver = super.toString();
+        
+        // Comprobamos si hay comentarios. 
+        // Si hay los mostramos, si no, mostramos un mensaje indicandolo.
+        if (comentarios.size() == 0) {
+            aDevolver += "No hay comentarios\n";
+        }
+        else {
+            aDevolver += "Comentarios: \n";
+            for(String comentarioActual : comentarios){
+                aDevolver += comentarioActual + "\n";
+            }
+        }     
+        
+        return aDevolver;
     }
 
 }
