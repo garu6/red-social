@@ -86,7 +86,6 @@ public class EntradaFoto extends EntradaConComentarios
     public void mostrarDatosExclusivos()
     {
         System.out.println("Url: " + urlImagen + "\ntitulo: " + titulo + "\n");
-        
     }
     
    
