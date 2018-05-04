@@ -68,9 +68,10 @@ public class EntradaEvento extends Entrada
     /**
      * Muestra por pantalla los datos exclusivos de la clase.
      */    
+    @Override 
     public void mostrarDatosExclusivos()
     {
-        System.out.println(evento);
+        System.out.println(mensajeEvento);
     }
      
      

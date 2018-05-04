@@ -82,9 +82,10 @@ public class EntradaFoto extends EntradaConComentarios
     /**
      * Muestra por pantalla los datos exclusivos de la clase.
      */    
+    @Override
     public void mostrarDatosExclusivos()
     {
-        System.out.println("Url: " + urlImagen + "\nTítulo: " + titulo + "\n");
+        System.out.println("Url: " + urlImagen + "\ntitulo: " + titulo + "\n");
     }
     
    

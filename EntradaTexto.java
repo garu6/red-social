@@ -69,6 +69,7 @@ public class EntradaTexto extends EntradaConComentarios
     /**
      * Muestra por pantalla los datos exclusivos de la clase.
      */
+    @Override
     public void mostrarDatosExclusivos()
     {                
         System.out.println(mensaje + "\n");

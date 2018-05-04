@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.time.LocalDateTime;
-
+import java.time.temporal.ChronoUnit;
 /**
  * Una entrada en nuestro muro.
  * 
@@ -100,5 +100,13 @@ public class Entrada
 
         return aDevolver;
     }
+    
+    /**
+     * Muestra por pantalla los datos exclusivos de la clase.
+     */
+    public void mostrarDatosExclusivos()
+    {
+        System.out.println("autor: " + usuario + " " + "comentario creado: " + momentoPublicacion + " " + "NºMgustas: " + cantidadMeGusta);
+    }    
     
 }

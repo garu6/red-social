@@ -30,7 +30,7 @@ import java.util.ArrayList;
      */
      public void addEntrada(Entrada entrada)
      {
-         eventos.add(entrada);
+         entradas.add(entrada);
      }
      
     /**
