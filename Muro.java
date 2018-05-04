@@ -14,7 +14,6 @@ import java.util.ArrayList;
  {
     // Entradas
     private ArrayList<Entrada> entradas;
-
     /**
      * Constructor - Construye e inicializa un muro vacio.
      */
